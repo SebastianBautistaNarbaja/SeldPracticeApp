@@ -1,4 +1,4 @@
-package dao;
+package connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -15,7 +15,7 @@ public class DatabaseConnection {
        try {
            conexion = DriverManager.getConnection(url,user,password);
        } catch (SQLException e) {
-           //lanzo el error para que el main avise si hubo un error
+           //lanzo el error para que el main lo controle
            throw new RuntimeException(e);
        }
     }
