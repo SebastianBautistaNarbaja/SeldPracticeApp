@@ -11,13 +11,8 @@ public class DatabaseConnection {
     private String password = "";
     private Connection conexion ;
 
-    public DatabaseConnection(){
-       try {
-           conexion = DriverManager.getConnection(url,user,password);
-       } catch (SQLException e) {
-           //lanzo el error para que el main lo controle
-           throw new RuntimeException(e);
-       }
+    public DatabaseConnection() throws SQLException {
+        conexion = DriverManager.getConnection(url,user,password);
     }
 
     public Connection getConexion() {
