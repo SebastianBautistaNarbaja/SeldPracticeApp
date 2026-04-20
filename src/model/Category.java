@@ -29,9 +29,7 @@ public class Category {
 
     @Override
     public String toString() {
-        return "Category{" +
-                "category_id=" + category_id +
-                ", name='" + name + '\'' +
-                '}';
+        return "Category_id = " + category_id +
+                "\nName = " + name;
     }
 }
