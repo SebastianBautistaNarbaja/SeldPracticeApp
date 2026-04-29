@@ -1,6 +1,7 @@
 package model;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 
 public class Product {
@@ -58,6 +59,13 @@ public class Product {
 
     public void setCategory_id(int category_id) {
         this.category_id = category_id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return this.product_id == product.getProduct_id();
     }
 
     @Override

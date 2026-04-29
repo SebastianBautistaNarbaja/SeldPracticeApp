@@ -17,7 +17,7 @@ public class ProductDAO {
     }
 
     public ArrayList<Product> listAll() throws SQLException{
-        ArrayList<Product> list = new ArrayList<>();
+        ArrayList<Product> list = new ArrayList<>(100);
         try(
                 PreparedStatement preConsulta = conexion.prepareStatement("select * from product");
                 ResultSet response = preConsulta.executeQuery()
@@ -42,7 +42,7 @@ public class ProductDAO {
     }
 
     public ArrayList<Product> findByName(String name) throws SQLException{
-        ArrayList<Product> list = new ArrayList<>();
+        ArrayList<Product> list = new ArrayList<>(100);
         try(
                 PreparedStatement preConsulta = conexion.prepareStatement("select * from product where name LIKE ?")
         ){

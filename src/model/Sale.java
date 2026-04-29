@@ -52,6 +52,16 @@ public class Sale {
         this.details = details;
     }
 
+    public BigDecimal calcularTotal(){
+
+        BigDecimal total = BigDecimal.valueOf(0);
+        for (SaleDetail sd : details){
+            total = total.add(sd.getSubTotal());
+        }
+
+        return total;
+    }
+
     public String toStringDetails() {
         return "Sale{" +
                 "sale_id=" + sale_id +

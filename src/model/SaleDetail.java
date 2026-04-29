@@ -60,7 +60,18 @@ public class SaleDetail {
         this.price = price;
     }
 
+    public BigDecimal priceSubtotal(){
+        return price.multiply(BigDecimal.valueOf(quantity));
+
+    }
+
     public BigDecimal getSubTotal(){
         return price.multiply(BigDecimal.valueOf(quantity));
+    }
+
+
+    @Override
+    public String toString() {
+        return product.getName()+"   -   "+product.getPrice()+"   -   "+quantity+"   -   "+priceSubtotal();
     }
 }
