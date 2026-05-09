@@ -72,6 +72,6 @@ public class SaleDetail {
 
     @Override
     public String toString() {
-        return product.getName()+"   -   "+product.getPrice()+"   -   "+quantity+"   -   "+priceSubtotal();
+        return product.getName()+"     -     "+product.getPrice()+"     -     "+quantity+"     -     "+priceSubtotal();
     }
 }

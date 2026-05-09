@@ -40,17 +40,17 @@ public class SaleDAO {
         return -1;
     }
 
-    public void insertFullSale(Sale s) throws SQLException {
-
-        int idVenta = insertSale(s);
-
+    public void insertFullSale(Sale s, int idVenta) throws SQLException {
         for (SaleDetail d : s.getDetails()) {
 
             d.setSale_id(idVenta);
 
-            try (PreparedStatement ps = conexion.prepareStatement(
-                    "INSERT INTO sale_detail (sale_id, product_id, quantity, unit_price) VALUES (?,?,?,?)"
-            )) {
+            try (
+                    PreparedStatement ps = conexion.prepareStatement(
+                            "INSERT INTO sale_detail (sale_id, product_id, quantity, unit_price) VALUES (?,?,?,?)"
+                    )
+            )
+            {
 
                 ps.setInt(1, d.getSale_id());
                 ps.setInt(2, d.getProduct().getProduct_id());

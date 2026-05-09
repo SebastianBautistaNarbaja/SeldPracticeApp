@@ -47,13 +47,24 @@ public class ShopController {
         return null;
     }
 
-    public void realizarCompra(Sale s){
+    public int registerSale(Sale s){
+        s.setDate(new java.util.Date());
+        s.setTotal(s.calcularTotal());
+        int id = 0;
+        try {
+            id = saleDAO.insertSale(s);
+        } catch (SQLException e) {
+            System.out.println("Hubo un error al registrar la venta");
+        }
+
+        return id;
+    }
+
+    public void registerSaleDetails(Sale s,int idVenta){
         try{
-            s.setDate(new java.util.Date());
-            s.setTotal(s.calcularTotal());
-            saleDAO.insertFullSale(s);
+            saleDAO.insertFullSale(s,idVenta);
         }catch (SQLException e){
-            System.out.println("Error al realizar la compra");
+            System.out.println("Error al registrar los detalles de la venta");
         }
     }
 
